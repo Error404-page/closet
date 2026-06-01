@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.asset-tmp/
+.DS_Store
+npm-debug.log*
+裤子/
+裙子/
+上衣/
+套装/
+外套/
