@@ -88,6 +88,7 @@ button {
 .tool-buttons button,
 .outfit-actions button,
 .item-delete,
+.front-handle,
 .rotate-handle,
 .resize-handle {
   display: inline-flex;
@@ -328,6 +329,7 @@ button {
 }
 
 .item-delete,
+.front-handle,
 .rotate-handle,
 .resize-handle {
   position: absolute;
@@ -343,6 +345,11 @@ button {
 .item-delete {
   top: -22px;
   right: -22px;
+}
+
+.front-handle {
+  top: -22px;
+  left: -22px;
 }
 
 .rotate-handle {

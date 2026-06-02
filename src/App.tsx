@@ -7,6 +7,7 @@ import {
   ImagePlus,
   Layers,
   Maximize2,
+  MoveUp,
   RotateCcw,
   RotateCw,
   Save,
@@ -212,6 +213,14 @@ export default function App() {
     );
   }
 
+  function bringToFront() {
+    if (!selectedId) return;
+    setItems((current) => {
+      const nextZ = current.length ? Math.max(...current.map((item) => item.zIndex)) + 1 : 1;
+      return current.map((item) => (item.id === selectedId ? { ...item, zIndex: nextZ } : item));
+    });
+  }
+
   function clearCanvas() {
     setItems([]);
     setSelectedId(null);
@@ -372,6 +381,9 @@ export default function App() {
               <button type="button" title="上移一层" disabled={!selectedItem} onClick={() => moveLayer('up')}>
                 <ArrowUp size={17} />
               </button>
+              <button type="button" title="置顶" disabled={!selectedItem} onClick={bringToFront}>
+                <MoveUp size={17} />
+              </button>
               <button type="button" title="下移一层" disabled={!selectedItem} onClick={() => moveLayer('down')}>
                 <ArrowDown size={17} />
               </button>
@@ -419,6 +431,9 @@ export default function App() {
                       <>
                         <button className="item-delete" type="button" title="删除" onClick={removeSelected}>
                           <Trash2 size={14} />
+                        </button>
+                        <button className="front-handle" type="button" title="置顶" onClick={bringToFront}>
+                          <MoveUp size={13} />
                         </button>
                         <button
                           className="rotate-handle"
