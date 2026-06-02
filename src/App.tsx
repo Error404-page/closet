@@ -312,7 +312,7 @@ export default function App() {
         <div>
           <span className="eyebrow">
             <Sparkles size={14} />
-            粉粉电子衣橱
+            小宝电子衣橱
           </span>
           <h1>搭配你的今日衣橱</h1>
         </div>
